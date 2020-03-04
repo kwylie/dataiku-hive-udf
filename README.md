@@ -99,8 +99,8 @@ selection of the elements is performed
 
 ## map_group_sum
 
-Aggregating operation on map<string,int> than performs the unions of keys of the map, and sum the value when a key
-exists in multiples maps
+Aggregating operation on map<string,int>, map<string,bigint>, map<string,float> or map<string,double> that performs 
+the unions of keys of the map, and sum the value when a key exists in multiples maps.
 
 
     CREATE TABLE docs {
@@ -109,6 +109,14 @@ exists in multiples maps
     }
 
     SELECT map_group_sum(word_count) FROM docs; ## Get the global word frequency
+
+## map_group_min
+
+Aggregating operation on map<string,int>, map<string,bigint>, map<string,float> or map<string,double> that performs
+the unions of keys of the map, and takes a min of the value when a key exists in multiple maps.  Does not preserves NULLs.
+
+    map_group_min({"A":2, "B":1, "A":0, "B":null, "C":null}) => {"A":0, "B":1}
+
 
 ### Maths
 

@@ -88,13 +88,9 @@ public class UDAFMapGroupMin extends AbstractGenericUDAFResolver {
                 if (okey == null || ovalue == null) continue;
                 String key = keyOI.getPrimitiveJavaObject(entry.getKey());
                 Integer value = valueOI.get(entry.getValue());
-                if (m.containsKey(key)) {
+                if (!m.containsKey(key) || m.get(key) == null || value < m.get(key)) {
                     Integer currValue = m.get(key);
-                    if (currValue == null || value < currValue) {
                         m.put(key, value);
-                    }
-                } else {
-                    m.put(key, value);
                 }
             }
         }
@@ -173,13 +169,9 @@ public class UDAFMapGroupMin extends AbstractGenericUDAFResolver {
                 if (okey == null || ovalue == null) continue;
                 String key = keyOI.getPrimitiveJavaObject(entry.getKey());
                 Long value = valueOI.get(entry.getValue());
-                if (m.containsKey(key)) {
+                if (!m.containsKey(key) || m.get(key) == null || value < m.get(key)) {
                     Long currValue = m.get(key);
-                    if (currValue == null || value < currValue) {
                         m.put(key, value);
-                    }
-                } else {
-                    m.put(key, value);
                 }
             }
         }
@@ -259,13 +251,9 @@ public class UDAFMapGroupMin extends AbstractGenericUDAFResolver {
                 if (okey == null || ovalue == null) continue;
                 String key = keyOI.getPrimitiveJavaObject(entry.getKey());
                 Double value = valueOI.get(entry.getValue());
-                if (m.containsKey(key)) {
+                if (!m.containsKey(key) || m.get(key) == null || value < m.get(key)) {
                     Double currValue = m.get(key);
-                    if (currValue == null || value < currValue) {
                         m.put(key, value);
-                    }
-                } else {
-                    m.put(key, value);
                 }
             }
         }
@@ -345,13 +333,9 @@ public class UDAFMapGroupMin extends AbstractGenericUDAFResolver {
                 if (okey == null || ovalue == null) continue;
                 String key = keyOI.getPrimitiveJavaObject(entry.getKey());
                 Float value = valueOI.get(entry.getValue());
-                if (m.containsKey(key)) {
+                if (!m.containsKey(key) || m.get(key) == null || value < m.get(key)) {
                     Float currValue = m.get(key);
-                    if (currValue == null || value < currValue) {
                         m.put(key, value);
-                    }
-                } else {
-                    m.put(key, value);
                 }
             }
         }
