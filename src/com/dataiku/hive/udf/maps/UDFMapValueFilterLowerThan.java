@@ -27,4 +27,53 @@ public class UDFMapValueFilterLowerThan extends UDF {
         }
         return map;
     }
+
+    public Map<String, Long> evaluate(Map<String, Long> map, Long minValue) {
+
+        toRemove.clear();
+        for(String s : map.keySet()) {
+            if (map.get(s) < minValue) {
+
+                toRemove.add(s);
+            }
+        }
+
+        for(String s : toRemove) {
+            map.remove(s);
+        }
+        return map;
+    }
+
+    public Map<String, Float> evaluate(Map<String, Float> map, Float minValue) {
+
+        toRemove.clear();
+        for(String s : map.keySet()) {
+            if (map.get(s) < minValue) {
+
+                toRemove.add(s);
+            }
+        }
+
+        for(String s : toRemove) {
+            map.remove(s);
+        }
+        return map;
+    }
+
+    public Map<String, Double> evaluate(Map<String, Double> map, Double minValue) {
+
+        toRemove.clear();
+        for(String s : map.keySet()) {
+            if (map.get(s) < minValue) {
+
+                toRemove.add(s);
+            }
+        }
+
+        for(String s : toRemove) {
+            map.remove(s);
+        }
+        return map;
+    }
+
 }
